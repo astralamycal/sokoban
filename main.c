@@ -13,9 +13,6 @@ int main()
     map->size_x = 10;
     map->size_y = 10;
     board_init(map);
-    for (int i = 0; i <= 10 - 1; i++)
-    {
-        printf("%s\n", map->board_content[i]);
-    }
+    print_board(map);
     exit(0);
 }
