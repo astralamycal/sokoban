@@ -34,13 +34,13 @@ void board_init(board *map) // creates the map to play in
     map->board_content[map->size_y + 1] = NULL; // adds end of board NULL value
 }
 
-void print_board(board *map) // shows the current map status
+void print_board(board *map, object *player, object *box, object *goal) // shows the current map status
 {
     system("clear");
 
-    printf("Player : \n");
-    printf("Box : \n");
-    printf("Goal : \n");
+    printf("Player : %d %d \n", player->coord_y, player->coord_x);
+    printf("Box : %d %d \n", box->coord_y, box->coord_x);
+    printf("Goal : %d %d \n", goal->coord_y, goal->coord_x);
     printf("\n");
 
     for (int y = 0; y < map->size_y; y++)

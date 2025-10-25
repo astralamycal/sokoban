@@ -1,6 +1,8 @@
 #ifndef __STRUCT_H__
 #define __STRUCT_H__
 
+#define BOARD_SIZE_BASE 8; // base board size to mess with
+
 typedef struct s_board board;
 
 struct s_board
