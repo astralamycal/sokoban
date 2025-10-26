@@ -3,6 +3,14 @@
 
 #define BOARD_SIZE_BASE 8; // base board size to mess with
 
+enum movements
+{
+    LEFT = 1,
+    RIGHT,
+    UP,
+    DOWN
+};
+
 typedef struct s_board board;
 
 struct s_board

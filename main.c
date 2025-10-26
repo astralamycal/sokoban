@@ -28,6 +28,10 @@ int main()
     box_init(box, map);
 
     // main loop
-    print_board(map, player, box, goal);
+    while (1 == 1)
+    {
+        print_board(map, player, box, goal);
+        player_move(player, map);
+    }
     exit(0);
 }
