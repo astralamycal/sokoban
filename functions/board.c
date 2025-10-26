@@ -52,3 +52,30 @@ void print_board(board *map, object *player, object *box, object *goal) // shows
         printf("\n");
     }
 }
+
+void write_board(board *map, int win_cond)
+{
+    FILE *fp = fopen("./end.txt", "w+");
+    if (win_cond == 1)
+    {
+        printf("You won!\n");
+        fprintf(fp, "The game was won.\n\n");
+    }
+
+    else
+    {
+        printf("You lost.\n");
+        fprintf(fp, "The game was lost\n\n");
+    }
+
+    for (int y = 0; y < map->size_y; y++)
+    {
+        for (int x = 0; x < map->size_x; x++)
+        {
+            fprintf(fp, "%c ", map->board_content[y][x]);
+        }
+        fprintf(fp, "\n");
+    }
+
+    exit(0);
+}

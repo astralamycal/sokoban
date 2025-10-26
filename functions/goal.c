@@ -3,6 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include "../struct.h"
+#include "board.h"
 
 void goal_init(object *goal, board *map)
 {
@@ -17,5 +18,32 @@ void goal_init(object *goal, board *map)
             map->board_content[goal->coord_y][goal->coord_x] = '.';
             placed = 1;
         }
+    }
+}
+
+void lose_check(object *box, object *goal, board *map)
+{
+    if (box->coord_y == 1 && goal->coord_y != 1) // checks if lost from top border
+    {
+        printf("You lost.\n");
+        write_board(map, 2);
+    }
+
+    if (box->coord_y == map->size_y - 2 && goal->coord_y != map->size_y - 2) // checks if lost from bottom border
+    {
+        printf("You lost.\n");
+        write_board(map, 2);
+    }
+
+    if (box->coord_x == 1 && goal->coord_x != 1) // checks if lost from left border
+    {
+        printf("You lost.\n");
+        write_board(map, 2);
+    }
+
+    if (box->coord_x == map->size_x - 2 && goal->coord_x != map->size_x - 2) // checks if lost from right border
+    {
+        printf("You lost.\n");
+        write_board(map, 2);
     }
 }

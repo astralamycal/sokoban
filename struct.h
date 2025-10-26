@@ -1,7 +1,7 @@
 #ifndef __STRUCT_H__
 #define __STRUCT_H__
 
-#define BOARD_SIZE_BASE 8; // base board size to mess with
+#define BOARD_SIZE_BASE 12; // base board size to mess with
 
 enum movements
 {

@@ -28,10 +28,10 @@ int main()
     box_init(box, map);
 
     // main loop
-    while (1 == 1)
+    while (1) // game stops when write_board() is called (see board.c)
     {
-        print_board(map, player, box, goal);
-        player_move(player, map);
+        print_board(map, player, box, goal); // in board.c
+        player_move(player, box, map);       // in player.c
+        lose_check(box, goal, map);          // in goal.c
     }
-    exit(0);
 }

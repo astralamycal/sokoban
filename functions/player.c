@@ -3,6 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include "../struct.h"
+#include "box.h"
 
 void player_init(object *player, board *map)
 {
@@ -19,7 +20,7 @@ void player_init(object *player, board *map)
     }
 }
 
-void player_move(object *player, board *map)
+void player_move(object *player, object *box, board *map)
 {
     int moved = 0;                            // checks if movement is made
     int move_choice;                          // gets the choice of movement
@@ -77,8 +78,7 @@ void player_move(object *player, board *map)
             {
                 if (map->board_content[player->coord_y + offset->coord_y][player->coord_x + offset->coord_x] == 'X') // tries to move box first
                 {
-                    printf("plink\n");
-                    // int moved = move_box(map, box);
+                    moved = move_box(map, box, offset); // gets whether box was moved or not
                 }
 
                 else if (map->board_content[player->coord_y + offset->coord_y][player->coord_x + offset->coord_x] == '#')
@@ -94,7 +94,7 @@ void player_move(object *player, board *map)
                 }
             }
 
-            else
+            if (moved == 1) // repeat condition in case box was moved
             {
                 map->board_content[player->coord_y][player->coord_x] = ' ';
                 map->board_content[player->coord_y + offset->coord_y][player->coord_x + offset->coord_x] = 'o';
